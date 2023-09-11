@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge| Encriptador</title>
+    <link rel="stylesheet" href="encript.css">
+
+</head>
+
+<body>
+    <nav>
+        <img alt="logo-alura" src="https://diegollanosr.github.io/assets/imagenes/alura.svg">
+    </nav>
+
+    <div class="txt-container">
+
+        <div class="cuadro">
+            <textarea id="textoInput" placeholder="Ingrese texto aquí"></textarea>
+            <ul>
+                <li class="exclamation"> solo letra minuscula y sin acentos</li>
+            </ul>
+            <ul class="botones-container">
+                <button class="boton" onclick="encriptarTexto()"> Encriptar </button>
+                <button class="boton1" onclick="desencriptarTexto()"> Desencriptar </button>
+            </ul>
+        </div>
+
+        <div class="encript">
+            <textarea id="resultadoTextarea" disabled></textarea>
+
+            <div id="desaparece">
+                <img class="imagen" src="dont-found.png" alt="no encontrado">
+                <h1>ningun mensaje fue encontrado</h1>
+                <p>ingrese el texto que desee encriptar o desencriptar</p>
+            </div>
+
+            <div class="botones-container">
+                <button class="boton2" onclick="copiarResultado()"> Copiar </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul class="footer">
+            <li> Challenge Alura creado by Diocondob </li>
+            <a href="https://github.com/diocondoB/projects-html-css-js/tree/main/web-js/encriptador"> 
+                <img src="logo-github.png"> </a>
+            <a href="mailto:diocondo@gmail.com">
+                <img src="logo-gmail.png">
+             </a>
+
+        </ul>
+    </footer>
+
+    <script>
+
+        //funcion desaparece para textarea e img
+        function ocultarBloque() {
+            const Desaparecer = document.getElementById("desaparece");
+            Desaparecer.style.display = "none";
+
+            const TextTarea= document.getElementById('resultadoTextarea');
+            TextTarea.style.display= "block";
+        }
+
+        const botonEncriptar = document.querySelector(".boton");
+        botonEncriptar.addEventListener("click", ocultarBloque);
+
+
+
+
+        // Función para encriptar el texto
+        function encriptarTexto() {
+
+            ocultarBloque();
+
+            const textoInput = document.getElementById("textoInput").value.toLowerCase();
+            const textoEncriptado = textoInput
+                .replace(/e/g, "enter")
+                .replace(/i/g, "imes")
+                .replace(/a/g, "ai")
+                .replace(/o/g, "ober")
+                .replace(/u/g, "ufat");
+
+            document.getElementById("resultadoTextarea").value = textoEncriptado;
+
+
+
+        }
+
+        // Función para desencriptar el texto
+        function desencriptarTexto() {
+
+            ocultarBloque();
+
+            const textoEncriptado = document.getElementById("textoInput").value.toLowerCase();
+            const textoDesencriptado = textoEncriptado
+                .replace(/enter/g, "e")
+                .replace(/imes/g, "i")
+                .replace(/ai/g, "a")
+                .replace(/ober/g, "o")
+                .replace(/ufat/g, "u");
+
+            document.getElementById("resultadoTextarea").value = textoDesencriptado;
+        }
+
+        // Función para copiar el resultado al portapapeles
+
+        function copiarAlPortapeles() {
+            let text = document.getElementById('resultadoTextarea').value;
+            // Lectura del texto en el textarea blanco
+            navigator.clipboard.writeText(text);
+            // Copia el texto al portapapeles
+            document.getElementById("textoInput").value = "";
+            // Limpieza del textarea resultadotextarea
+        }
+
+        let buttonCopy = document.getElementsByClassName("boton2");
+        // Lectura del estado del botón para copiar
+        buttonCopy.onclick = copiarAlPortapeles;
+        // Llamada de la función para copiar el texto en el output con el click
+
+
+
+        // Al hacer clic en el botón de copiar 
+        const botonCopiar = document.querySelector(".boton2");
+        botonCopiar.addEventListener(
+            "click", () => {
+                const resultadoTextarea = document.getElementById("resultadoTextarea");
+                copiarAlPortapeles(resultadoTextarea.value);
+
+                // Cambiar el texto del botón a "Copiado ✓"
+                botonCopiar.innerText = "Copiado ✓ ";
+
+                // Restablecer el texto del botón después de 4 segundos
+                setTimeout(() => { botonCopiar.innerText = "Copiar"; }, 4000);
+
+            }
+        );
+
+
+
+    </script>
+</body>
+
+</html>

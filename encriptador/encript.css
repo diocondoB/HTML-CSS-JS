@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Calibri', Arial, sans-serif;
+    background-color: #d1d9e7;
+    height: 100vh;
+}
+
+/* nav-up */
+nav img {
+    width: 40px;
+    margin: 0 20px;
+}
+
+.txt-container {
+    display: flex;
+    flex: 1 0 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+textarea {
+    resize: none;
+    /*para que no se pueda ajustar por el usuario*/
+
+
+    outline: none;
+    /*para quitar el marco negro por defecto que trae textarea*/
+
+    border: none;
+    height: 50vh;
+    width: 100%;
+}
+
+/* body content - lado celeste*/
+
+.cuadro {
+    padding: 30px;
+    flex-grow: 2;
+}
+
+.cuadro .exclamation {
+    list-style: url(exclamation.svg);
+    font-family: 'Calibri', Arial, sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    padding: 20px 0;
+
+}
+
+.cuadro textarea {
+    font-family: 'Calibri', Arial, sans-serif;
+    font-size: 30px;
+    color: #678ac2;
+    background-color: #d1d9e7;
+}
+
+textarea::placeholder {
+    color: #123e73;
+    font-family: 'Calibri', Arial, sans-serif;
+    font-size: 40px;
+}
+
+/* body content- lado blanco*/
+
+.encript {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1 0 15%;
+}
+
+
+.imagen {
+    min-width: 150px;
+    background-size: cover ;
+}
+
+@media screen and (max-width: 900px) {
+    .imagen {
+        display: none;
+    }
+}
+
+.encript h1 {
+    font-family: 'calibri', sans-serif;
+    font-size: 30px;
+
+}
+
+.encript p {
+    font-family: 'calibri', sans-serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.encript textarea {
+    font-family: 'Calibri', Arial, sans-serif;
+    font-size: 30px;
+    display: none;
+    /* esto se modifica en js */
+}
+
+
+/* body content- botones */
+
+.botones-container {
+    display: flex;
+    flex: 1 0 0;
+    justify-content: center;
+}
+
+.boton,
+.boton1,
+.boton2 {
+    font-family: 'Calibri', Arial, sans-serif;
+    font-size: 20px;
+    border: 2px solid #123e73;
+    border-radius: 15px;
+    cursor: pointer;
+    /* para que marque la manito cuando pases el mouse por ahi */
+
+    margin: 0 10px;
+    padding: 20px 40px;
+}
+
+.boton {
+    background-color: #123e73;
+    color: #d1d9e7;
+}
+
+.boton1,
+.boton2 {
+    background-color: #d1d9e7;
+    color: #123e73;
+}
+
+.boton2 {
+    background-color: #fff;
+}
+
+/* nav-down */
+
+footer {
+    background-color: #d1d9e7;
+    color: #123e73;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+footer ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 20px;
+}
+.footer img{
+width: 35px;
+}
